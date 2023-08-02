@@ -16,7 +16,7 @@ export default function PageItem() {
           </p>
         </div>
         <div className="card-footer text-center p-3">
-          <button className="btn btn-primary">Find Out More</button>
+          <button className="btn btn-primary">Find Out More!</button>
         </div>
       </div>
     </div>
