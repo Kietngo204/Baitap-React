@@ -1,7 +1,7 @@
-
+import Glass from "./BaitapReactBuoi2/Glass";
 
 function App() {
-  return <div></div>;
+  return <Glass />;
 }
 
 export default App;
