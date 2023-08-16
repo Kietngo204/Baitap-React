@@ -4,8 +4,13 @@ import GlassList from "./GlassList";
 import dataGlasses from "./dataGlasses.json";
 
 export default function GlassBanner() {
-  const [imgGlass, setImgGlass] = useState("");
-  const handleChangeGlass = (code) => {};
+  const [listGlass, setListGlass] = useState({});
+  const [isCheck, setIsCheck] = useState(false);
+  const handleChangeGlass = (glass) => {
+    setListGlass(glass);
+    setIsCheck(true);
+  };
+
   return (
     <div
       style={{
@@ -23,9 +28,20 @@ export default function GlassBanner() {
         }}
         className="z-1 vh-100 vw-100"
       ></div>
-      <div className=" z-2 position-absolute d-flex justify-content-center flex-column ">
-        <Model glasses={dataGlasses} />
-        <GlassList onChangeGlass={handleChangeGlass} />
+      <div
+        className=" z-2 position-absolute d-flex justify-content-center flex-column"
+        style={{ marginTop: "100px" }}
+      >
+        <Model listGlass={listGlass} onCheck={isCheck} />
+        <div
+          className="row container d-flex justify-content-center align-items-center"
+          style={{ backgroundColor: "white" }}
+        >
+          <GlassList
+            onChangeGlass={handleChangeGlass}
+            dataGlasses={dataGlasses}
+          />
+        </div>
       </div>
     </div>
   );
