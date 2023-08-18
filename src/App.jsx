@@ -1,7 +1,7 @@
-
+import ShoeShop from "./BaitapReactShoeShop/ShoeShop";
 
 function App() {
-  return <div></div>;
+  return <ShoeShop />;
 }
 
 export default App;
