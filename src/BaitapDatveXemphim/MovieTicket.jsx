@@ -1,6 +1,6 @@
 import React from "react";
 import data from "./data.json";
-import SeatList from "./SeatList";
+import SeatListRow from "./SeatListRow";
 import Tickets from "./Tickets";
 export default function MovieTicket() {
   return (
@@ -26,7 +26,7 @@ export default function MovieTicket() {
         }}
       ></div>
       <div
-        className="container mt-3"
+        className="container pt-3"
         style={{
           position: "absolute",
           top: "0",
@@ -37,7 +37,7 @@ export default function MovieTicket() {
       >
         <div className="row">
           <div className="col-md-7">
-            <SeatList data={data} />
+            <SeatListRow data={data} />
           </div>
           <div className="col-md-5">
             <Tickets />

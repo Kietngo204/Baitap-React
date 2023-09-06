@@ -1,37 +1,41 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 
-export default function SeatItem({ seatList }) {
+export default function SeatItem({ seat, isSelected }) {
+  const dispatch = useDispatch();
   let classes = "";
   let cursor1 = "";
-  const [isDisabled, setIsDisable] = useState(false);
-  const handleDisable = (soGhe) => {
-    alert(123);
+
+  const handleSelect = () => {
+    dispatch({
+      type: "selectSeat",
+      payload: { ...seat, isSelected: !isSelected },
+    });
   };
+
+  if (typeof seat.soGhe === "number") {
+    classes = "col mb-3 text-center stt";
+    cursor1 = "text";
+  } else if (isSelected) {
+    classes = "col text-center gheDangChon ";
+  } else if (seat.daDat) {
+    classes = "col text-center gheDuocChon";
+  } else {
+    classes = "col ghe";
+    cursor1 = "pointer";
+  }
   return (
-    <div className="row">
-      {seatList.map((seat) => {
-        if (typeof seat.soGhe === "number") {
-          classes = "col mb-3 text-center button";
-          cursor1 = "text";
-        } else {
-          classes = "col ghe";
-          cursor1 = "pointer";
-        }
-        return (
-          <button
-            key={seat.soGhe}
-            className={classes}
-            style={{
-              cursor: `${cursor1}`,
-            }}
-            onClick={() => {
-              handleDisable(seat.soGhe);
-            }}
-          >
-            {seat.soGhe}
-          </button>
-        );
-      })}
-    </div>
+    <button
+      key={seat.soGhe}
+      className={classes}
+      style={{
+        cursor: `${cursor1}`,
+      }}
+      onClick={() => {
+        handleSelect();
+      }}
+    >
+      {seat.soGhe}
+    </button>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react";
-import SeatItem from "./SeatItem";
+
+import SeatListColumn from "./SeatListColumn";
 
 export default function SeatList({ data }) {
   return (
@@ -15,7 +16,7 @@ export default function SeatList({ data }) {
                 {seats.hang}
               </div>
               <div className="col-11 pe-3">
-                <SeatItem seatList={seats.danhSachGhe} />
+                <SeatListColumn seatList={seats.danhSachGhe} />
               </div>
             </div>
           );
