@@ -8,11 +8,6 @@ export default function SeatItem({ seat, isSelected }) {
   let cursor1 = "";
 
   const handleSelect = () => {
-    // dispatch({
-    //   type: "selectSeat",
-    //   payload: { ...seat, isSelected: !isSelected },
-    // });
-
     dispatch(selectSeat({ ...seat, isSelected: !isSelected }));
   };
 

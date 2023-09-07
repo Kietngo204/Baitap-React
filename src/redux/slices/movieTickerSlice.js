@@ -35,6 +35,4 @@ const movieTicketSlice = createSlice({
 
 export const { selectSeat, removeSeat } = movieTicketSlice.actions;
 
-console.log(movieTicketSlice.actions);
-
 export default movieTicketSlice.reducer;

@@ -10,7 +10,6 @@ export default function Tickets() {
   const dispatch = useDispatch();
 
   const handleRemove = (soGhe) => {
-    // dispatch({ type: "removeSeat", payload: soGhe });
     dispatch(removeSeat(soGhe));
   };
   return (
@@ -52,7 +51,6 @@ export default function Tickets() {
         </thead>
         <tbody>
           {selectedSeats.map((item) => {
-            console.log(item);
             return (
               <tr
                 key={item.soGhe}
