@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { removeSeat } from "../redux/slices/movieTickerSlice";
 
 export default function Tickets() {
   const { selectedSeats, totalPrice } = useSelector((state) => {
@@ -9,7 +10,8 @@ export default function Tickets() {
   const dispatch = useDispatch();
 
   const handleRemove = (soGhe) => {
-    dispatch({ type: "removeSeat", payload: soGhe });
+    // dispatch({ type: "removeSeat", payload: soGhe });
+    dispatch(removeSeat(soGhe));
   };
   return (
     <div className="d-flex justify-content-center flex-column text-center ps-5">

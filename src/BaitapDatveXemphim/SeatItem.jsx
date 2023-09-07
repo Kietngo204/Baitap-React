@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { selectSeat } from "../redux/slices/movieTickerSlice";
 
 export default function SeatItem({ seat, isSelected }) {
   const dispatch = useDispatch();
@@ -7,10 +8,12 @@ export default function SeatItem({ seat, isSelected }) {
   let cursor1 = "";
 
   const handleSelect = () => {
-    dispatch({
-      type: "selectSeat",
-      payload: { ...seat, isSelected: !isSelected },
-    });
+    // dispatch({
+    //   type: "selectSeat",
+    //   payload: { ...seat, isSelected: !isSelected },
+    // });
+
+    dispatch(selectSeat({ ...seat, isSelected: !isSelected }));
   };
 
   if (typeof seat.soGhe === "number") {
